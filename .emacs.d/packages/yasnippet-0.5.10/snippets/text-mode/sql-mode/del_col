@@ -1,0 +1,5 @@
+#contributor : memememomo <memememomo@gmail.com>
+#name : alter table
+# --
+ALTER TABLE ${1:TableName} DROP COLUMN ${2:ColName};
+

@@ -1,0 +1,1 @@
+ALTER TABLE ${1:TableName} add ${2:ColName} ${3:ColType} AFTER ${4:ColName};

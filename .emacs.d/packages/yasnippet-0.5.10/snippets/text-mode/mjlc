@@ -1,0 +1,6 @@
+#name : sub ... { ... }
+# --
+${1:method} '${2:path}' => sub {
+    my $self = shift;
+    $self->render();
+} => '${3:name}';
