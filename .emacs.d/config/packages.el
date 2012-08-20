@@ -248,14 +248,14 @@
 ;; yasnippet
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/packages/yasnippet-0.5.10/snippets")
+(yas/load-directory "~/Dropbox/emacs/yasnipet/snippets")
 
 
 ;; howm
 (setq load-path (append
 		 '("~/.emacs.d/packages/howm")
 		 load-path))
-(setq howm-directory (concat user-emacs-directory "howm"))
+(setq howm-directory "~/Dropbox/emacs/howm")
 (setq howm-menu-lang 'ja)
 (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
 (when (require 'howm-mode nil t)
