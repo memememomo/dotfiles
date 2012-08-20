@@ -30,6 +30,7 @@
   (setq browse-url-browser-function original-browse-url-browser-function))
 
 
+
 ;;;----------------------------------------------------------------------------------------------------
 ;; perl-completion
 
@@ -132,6 +133,39 @@
 (add-to-list 'auto-mode-alist (cons "\\.js\\'" 'javascript-mode))
 (autoload 'javascript-mode "javascript" nil t)
 (setq js-indent-level 4)
+
+
+;;;----------------------------------------------------------------------------------------------------
+;;; coffeescript Mode
+
+(add-to-list 'load-path "~/.emacs.d/packages/coffee-mode")
+(require 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(setq whitespace-action '(auto-cleanup)) ;; automatically clean up bad whitespace
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab)) ;; only show bad whitespace
+
+
+;;;----------------------------------------------------------------------------------------------------
+;;; ruby
+
+(package-install 'github "nonsequitur/inf-ruby" 'inf-ruby)
+
+
+;;;----------------------------------------------------------------------------------------------------
+;;; rails
+
+(package-install 'github "eschulte/rinari" 'ido)
+(ido-mode t)
+(require 'rinari)
+
+
+;;;----------------------------------------------------------------------------------------------------
+;;; rhtml-mode
+
+(package-install 'github "eschulte/rhtml" 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+   (lambda () (rinari-launch)))
 
 
 

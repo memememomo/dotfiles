@@ -53,7 +53,7 @@
                 (concat grep-command-before-target " ."))
               (+ (length grep-command-before-target) 1)))
     (car grep-command)))
-;(setq grep-command (cons (concat grep-command-before-query " .")
+(setq grep-command (cons (concat grep-command-before-query " .")
 
 ;;; バー
 ;; メニューバーを消す
@@ -151,6 +151,9 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
+;; デフォルトのタブ
+(setq default-tab-width 4)
+
 
 ;;; 追加の設定
 (load "config/builtins")
@@ -159,5 +162,3 @@
 
 (put 'set-goal-column 'disabled nil)
 
-
-(server-start)
