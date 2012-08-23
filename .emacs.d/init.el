@@ -53,7 +53,7 @@
                 (concat grep-command-before-target " ."))
               (+ (length grep-command-before-target) 1)))
     (car grep-command)))
-(setq grep-command (cons (concat grep-command-before-query " .")
+;(setq grep-command (cons (concat grep-command-before-query " .")
 
 ;;; バー
 ;; メニューバーを消す
