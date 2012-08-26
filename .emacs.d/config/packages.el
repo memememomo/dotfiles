@@ -168,6 +168,17 @@
    (lambda () (rinari-launch)))
 
 
+;;;----------------------------------------------------------------------------------------------------
+;;; haskell-mode
+
+(add-to-list 'load-path "~/.emacs.d/packages/haskell-mode")
+(require 'haskell-mode)
+(require 'haskell-cabal)
+(setq auto-mode-alist (cons '("\\.hs$" . haskell-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.lhs$" . haskell-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cabal$" . haskell-mode) auto-mode-alist))
+
+
 
 ;;;----------------------------------------------------------------------------------------------------
 ;;; run-test
@@ -178,6 +189,7 @@
 (setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.tmpl$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.html.ep" . html-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.ejs$" . html-mode) auto-mode-alist))
 ;(setq auto-mode-alist (cons '("\\.tpl$" . html-helper-mode) auto-mode-alist))
 
 
@@ -188,7 +200,11 @@
 (setq php-mode-force-pear t)
 (add-hook 'php-mode-user-hook
   '(lambda ()
-     (setq indent-tabs-mode t)
+     (setq indent-tabs-mode nil)
+	 (setq tab-width 4
+		   c-basic-offset 4
+		   c-hanging-comment-ender-p nil)
+	 (setq php-mode-force-pear t)
      (setq php-manual-path "/home/admin2/doc/php")
      (setq php-manual-url "http://www.phppro.jp/phpmanual/")))
 
