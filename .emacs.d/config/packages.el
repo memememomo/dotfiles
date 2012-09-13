@@ -30,7 +30,6 @@
   (setq browse-url-browser-function original-browse-url-browser-function))
 
 
-
 ;;;----------------------------------------------------------------------------------------------------
 ;; perl-completion
 
@@ -181,19 +180,8 @@
 
 
 ;;;----------------------------------------------------------------------------------------------------
-;;; run-test
+;;; php-mode
 
-
-;;html
-;(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-(setq auto-mode-alist (cons '("\\.html$" . html-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.tmpl$" . html-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.html.ep" . html-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.ejs$" . html-mode) auto-mode-alist))
-;(setq auto-mode-alist (cons '("\\.tpl$" . html-helper-mode) auto-mode-alist))
-
-
-; 設定例
 (autoload 'php-mode "php-mode")
 (setq auto-mode-alist
       (cons '("\\.php\\'" . php-mode) auto-mode-alist))
@@ -213,6 +201,7 @@
 (setq sr-speedbar-right-side nil)
 
 
+;;----------------------------------------------------------------------------------------------------
 ;; perldoc -m を開く
 
 ;; モジュールソースバッファの場合はその場で、
@@ -254,20 +243,26 @@
 (global-set-key (kbd "C-M-m") 'perldoc-m)
 
 
+;;----------------------------------------------------------------------------------------------------
 ;; zencoding-mode
+
 (require 'zencoding-mode)
 (add-hook 'html-mode-hook 'zencoding-mode) ;; html-modeとかで自動出来にzencodingできるようにする
 (define-key zencoding-mode-keymap (kbd "C-c C-m") 'zencoding-expand-line)
 (define-key zencoding-preview-keymap (kbd "C-c C-m") 'zencoding-preview-accept)
 
 
+;;----------------------------------------------------------------------------------------------------
 ;; yasnippet
+
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/Dropbox/emacs/yasnipet/snippets")
 
 
+;;----------------------------------------------------------------------------------------------------
 ;; howm
+
 (setq load-path (append
 		 '("~/.emacs.d/packages/howm")
 		 load-path))
@@ -286,4 +281,41 @@
     (kill-buffer nil)))
 (define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
 
+
+;;----------------------------------------------------------------------------------------------------
+;; open-junk-file
+
+(package-install 'emacswiki "open-junk-file.el" 'open-junk-file)
+(global-set-key (kbd "C-c C-j") 'open-junk-file)
+
+
+;;----------------------------------------------------------------------------------------------------
+;; lispxmp
+
+(package-install 'emacswiki "lispxmp.el" 'lispxmp)
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+
+
+;;----------------------------------------------------------------------------------------------------
+;; paredit
+
+(require 'paredit)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'ielm-mode-hook 'enable-paredit-mode)
+
+
+
+;;----------------------------------------------------------------------------------------------------
+;; iiimage
+
+(auto-image-file-mode t)
+(require 'iimage)
+
+
+;;----------------------------------------------------------------------------------------------------
+;; quickrun
+
+(require 'quickrun)
 
